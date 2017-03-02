@@ -43,19 +43,19 @@ fi
 
 newclient () {
 	# Generates the custom client.ovpn
-	cp /etc/openvpn/client-common.txt ~/$1.ovpn
-	echo "<ca>" >> ~/$1.ovpn
-	cat /etc/openvpn/easy-rsa/pki/ca.crt >> ~/$1.ovpn
-	echo "</ca>" >> ~/$1.ovpn
-	echo "<cert>" >> ~/$1.ovpn
-	cat /etc/openvpn/easy-rsa/pki/issued/$1.crt >> ~/$1.ovpn
-	echo "</cert>" >> ~/$1.ovpn
-	echo "<key>" >> ~/$1.ovpn
-	cat /etc/openvpn/easy-rsa/pki/private/$1.key >> ~/$1.ovpn
-	echo "</key>" >> ~/$1.ovpn
-	echo "<tls-auth>" >> ~/$1.ovpn
-	cat /etc/openvpn/ta.key >> ~/$1.ovpn
-	echo "</tls-auth>" >> ~/$1.ovpn
+	cp /etc/openvpn/client-common.txt /home/$1.ovpn
+	echo "<ca>" >> /home/$1.ovpn
+	cat /etc/openvpn/easy-rsa/pki/ca.crt >> /home/$1.ovpn
+	echo "</ca>" >> /home/$1.ovpn
+	echo "<cert>" >> /home/$1.ovpn
+	cat /etc/openvpn/easy-rsa/pki/issued/$1.crt >> /home/$1.ovpn
+	echo "</cert>" >> /home/$1.ovpn
+	echo "<key>" >> /home/$1.ovpn
+	cat /etc/openvpn/easy-rsa/pki/private/$1.key >> /home/$1.ovpn
+	echo "</key>" >> /home/$1.ovpn
+	echo "<tls-auth>" >> /home/$1.ovpn
+	cat /etc/openvpn/ta.key >> /home/$1.ovpn
+	echo "</tls-auth>" >> /home/$1.ovpn
 }
 
 # Try to get our IP from the system and fallback to the Internet.
@@ -406,6 +406,6 @@ verb 3" > /etc/openvpn/client-common.txt
 	echo ""
 	echo "Finished!"
 	echo ""
-	echo "Your client configuration is available at" ~/"$CLIENT.ovpn"
+	echo "Your client configuration is available at" /home/"$CLIENT.ovpn"
 	echo "If you want to add more clients, you simply need to run this script again!"
 fi
