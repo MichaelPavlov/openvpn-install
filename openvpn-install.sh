@@ -77,7 +77,8 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 		echo "   2) Revoke an existing user"
 		echo "   3) Remove OpenVPN"
 		echo "   4) Exit"
-		read -p "Select an option [1-4]: " option
+#		read -p "Select an option [1-4]: " option
+        option=3
 		case $option in
 			1) 
 			echo ""
@@ -126,7 +127,8 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			;;
 			3) 
 			echo ""
-			read -p "Do you really want to remove OpenVPN? [y/n]: " -e -i n REMOVE
+#			read -p "Do you really want to remove OpenVPN? [y/n]: " -e -i n REMOVE
+			REMOVE='y'
 			if [[ "$REMOVE" = 'y' ]]; then
 				PORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d " " -f 2)
 				PROTOCOL=$(grep '^proto ' /etc/openvpn/server.conf | cut -d " " -f 2)
@@ -210,8 +212,8 @@ else
 	echo "   4) NTT"
 	echo "   5) Hurricane Electric"
 	echo "   6) Verisign"
-#	read -p "DNS [1-6]: " -e -i 1 DNS
-	DNS=3
+	read -p "DNS [1-6]: " -e -i 1 DNS
+#	DNS=3
 	echo ""
 	echo "Finally, tell me your name for the client certificate"
 	echo "Please, use one word only, no special characters"
