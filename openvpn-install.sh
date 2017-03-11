@@ -211,7 +211,7 @@ else
 	echo "   5) Hurricane Electric"
 	echo "   6) Verisign"
 #	read -p "DNS [1-6]: " -e -i 1 DNS
-	DNS=6
+	DNS=3
 	echo ""
 	echo "Finally, tell me your name for the client certificate"
 	echo "Please, use one word only, no special characters"
